@@ -19,34 +19,37 @@ RTAのルート管理のためのWebアプリケーションです。チャー�
 
 ## セットアップ方法
 1. 必要なパッケージのインストール:
-
-bash
+```bash
 pip install flask flask-sqlalchemy werkzeug
+```
 
 2. アプリケーションの起動:
 
-bash
+```bash
 python app.py
+```
 
 3. ブラウザで以下のURLにアクセス:
 http://localhost:5000
 
 ## ディレクトリ構造
 
+```text
 rta_chart_app/
 ├── app.py
 ├── static/
-│ ├── style.css
-│ ├── script.js
-│ └── uploads/
+│   ├── style.css
+│   ├── script.js
+│   └── uploads/
 ├── templates/
-│ ├── base.html
-│ ├── chart_list.html
-│ ├── chart_detail.html
-│ ├── chart_form.html
-│ ├── step_detail.html
-│ └── step_form.html
+│   ├── base.html
+│   ├── chart_list.html
+│   ├── chart_detail.html
+│   ├── chart_form.html
+│   ├── step_detail.html
+│   └── step_form.html
 └── rta_chart.db
+```
 
 
 ## データベース構造
