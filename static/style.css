@@ -1,0 +1,509 @@
+/* 基本スタイル */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f6fa;
+    color: #2c3e50;
+}
+
+/* ヘッダースタイル */
+header {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+header nav {
+    margin-top: 1rem;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    font-weight: 500;
+}
+
+header nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* メインコンテンツ */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+}
+
+/* 見出し */
+h2 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #3498db;
+}
+
+h3 {
+    color: #2c3e50;
+    font-size: 1.4rem;
+    margin: 1.5rem 0 1rem;
+}
+
+/* リンク */
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #2980b9;
+}
+
+/* ボタン */
+.button,
+button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+    text-align: center;
+}
+
+.button:hover,
+button:hover {
+    background: #2980b9;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* カード風のコンテナ */
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+
+    main {
+        padding: 0 1rem 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* フォームスタイルの改善 */
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 0.25rem;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* エラーメッセージ */
+.error {
+    color: #e74c3c;
+    background: #fdf0ed;
+    padding: 0.8rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* 成功メッセージ */
+.success {
+    color: #27ae60;
+    background: #edfdf5;
+    padding: 0.8rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* チャート一覧 */
+.chart-list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.chart-item {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chart-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart-link {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    flex-grow: 1;
+}
+
+.chart-category {
+    color: #666;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+
+/* 新規チャート作成ボタン */
+.create-chart-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #27ae60;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 2rem 0;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.create-chart-button:hover {
+    background: #219a52;
+    transform: translateY(-1px);
+}
+
+.create-chart-button::before {
+    content: "+";
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* チャート一覧 */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.step-handle {
+    cursor: move;
+    color: #666;
+    padding: 0 0.5rem;
+}
+
+.step-content {
+    flex-grow: 1;
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.step-order {
+    color: #666;
+}
+
+.step-title {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.step-title:hover {
+    text-decoration: underline;
+}
+
+.step-memo-preview {
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 0.25rem;
+}
+
+.step-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* フォーム */
+form {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+button.delete {
+    background: #e74c3c;
+}
+
+button.delete:hover {
+    background: #c0392b;
+}
+
+/* ステップ詳細ページ */
+.step-detail-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.step-detail-page .step-info {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.step-detail-page .step-image {
+    margin: 20px 0;
+}
+
+.step-detail-page .step-image img {
+    max-width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.step-detail-page .step-memo {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* ドラッグ&ドロップ */
+.dragging {
+    opacity: 0.5;
+}
+
+.drag-above {
+    border-top: 2px solid #3498db;
+}
+
+.drag-below {
+    border-bottom: 2px solid #3498db;
+}
+
+/* 新規ステップ作成ボタン */
+.create-step-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #3498db;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 1rem 0 2rem;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.create-step-button:hover {
+    background: #2980b9;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.create-step-button::before {
+    content: "+";
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* ステップアクションボタン */
+.edit-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #f39c12;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.edit-button:hover {
+    background: #d68910;
+    color: white;
+}
+
+/* ステップリストのスタイル改善 */
+#step-list {
+    margin-top: 1rem;
+}
+
+.step-item {
+    margin-bottom: 1rem;
+    background: white;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.step-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.step-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.step-actions form {
+    margin: 0;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+}
+
+.step-actions .delete {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* ステップ詳細のレイアウト */
+.step-details {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* サムネイル画像のスタイル */
+.step-thumbnail {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #f5f6fa;
+}
+
+.step-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* メモプレビューのスタイル調整 */
+.step-memo-preview {
+    flex-grow: 1;
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+    margin: 0;
+}
+
+/* ステップアイテムの内部パディング調整 */
+.step-item {
+    padding: 1rem;
+}
+
+.step-content {
+    flex-grow: 1;
+    min-width: 0;
+    /* flexboxでの文字列切り詰め対応 */
+}

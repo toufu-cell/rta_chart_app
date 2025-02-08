@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>新規チャート作成</h2>
+<form method="POST">
+    <label>タイトル:
+        <input type="text" name="title" required>
+    </label><br />
+    <label>カテゴリ:
+        <input type="text" name="category">
+    </label><br />
+    <button type="submit">作成</button>
+</form>
+<a href="{{ url_for('index') }}" class="button">戻る</a>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>チャート一覧</h2>
+
+<a href="{{ url_for('create_chart') }}" class="create-chart-button">新規チャート作成</a>
+
+<div class="chart-list">
+    {% for chart in charts %}
+    <div class="chart-item">
+        <a href="{{ url_for('chart_detail', chart_id=chart.id) }}" class="chart-link">
+            {{ chart.title }}
+            <span class="chart-category">{{ chart.category }}</span>
+        </a>
+        <form action="{{ url_for('delete_chart', chart_id=chart.id) }}" method="POST" style="display:inline;">
+            <button type="submit" onclick="return confirm('削除しますか？');" class="delete">削除</button>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

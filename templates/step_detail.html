@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>ステップ詳細</h2>
+<div class="step-detail-page">
+    <p class="step-info">
+        <span class="step-order">[{{ step.order }}]</span>
+        <span class="step-title">{{ step.title }}</span>
+    </p>
+
+    {% if step.image_path %}
+    <div class="step-image">
+        <img src="{{ url_for('static', filename='uploads/' + step.image_path) }}" alt="ステップ画像">
+    </div>
+    {% endif %}
+
+    <div class="step-memo">
+        <h3>メモ</h3>
+        <p>{{ step.memo }}</p>
+    </div>
+
+    <div class="action-buttons">
+        <a href="{{ url_for('edit_step', chart_id=chart.id, step_id=step.id) }}" class="button">編集</a>
+        <a href="{{ url_for('chart_detail', chart_id=chart.id) }}" class="button">戻る</a>
+    </div>
+</div>
+{% endblock %}

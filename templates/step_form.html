@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{% if step %}ステップ編集{% else %}ステップ作成{% endif %}</h2>
+<form method="POST" enctype="multipart/form-data">
+    <label>順番:
+        <input type="number" name="order" min="1"
+            value="{% if step %}{{ step.order }}{% else %}{{ next_order }}{% endif %}">
+    </label><br />
+    <label>タイトル:
+        <input type="text" name="title" value="{% if step %}{{ step.title }}{% endif %}">
+    </label><br />
+    <label>メモ:
+        <textarea name="memo" rows="5" cols="30">{% if step %}{{ step.memo }}{% endif %}</textarea>
+    </label><br />
+    <label>画像:
+        <input type="file" name="image" accept="image/*">
+    </label><br />
+    {% if step and step.image_path %}
+    <div class="current-image">
+        <p>現在の画像:</p>
+        <img src="{{ url_for('static', filename='uploads/' + step.image_path) }}" alt="ステップ画像"
+            style="max-width: 200px"><br>
+        <label>
+            <input type="checkbox" name="remove_image"> この画像を削除
+        </label>
+    </div>
+    {% endif %}
+    <button type="submit">{% if step %}更新{% else %}作成{% endif %}</button>
+</form>
+<a href="{{ url_for('chart_detail', chart_id=chart.id) }}">戻る</a>
+{% endblock %}

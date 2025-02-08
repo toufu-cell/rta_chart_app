@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+{% if chart %}
+<h2>チャート: {{ chart.title }}</h2>
+<p>カテゴリ: {{ chart.category }}</p>
+
+<!-- チャート編集フォーム -->
+<form action="{{ url_for('edit_chart', chart_id=chart.id) }}" method="POST">
+    <label>タイトル: <input type="text" name="title" value="{{ chart.title }}"></label><br />
+    <label>カテゴリ: <input type="text" name="category" value="{{ chart.category }}"></label><br />
+    <button type="submit">更新</button>
+</form>
+
+<hr>
+<h3>ステップ一覧</h3>
+
+<a href="{{ url_for('create_step', chart_id=chart.id) }}" class="create-step-button">新規ステップ作成</a>
+
+<ul id="step-list">
+    {% for step in steps %}
+    <li data-step-id="{{ step.id }}" class="step-item">
+        <span class="step-handle" title="ドラッグして順序を変更">⋮⋮</span>
+        <div class="step-content">
+            <div class="step-header">
+                <span class="step-order">[{{ step.order }}]</span>
+                <a href="{{ url_for('step_detail', chart_id=chart.id, step_id=step.id) }}" class="step-title">{{
+                    step.title }}</a>
+            </div>
+            <div class="step-details">
+                {% if step.image_path %}
+                <div class="step-thumbnail">
+                    <img src="{{ url_for('static', filename='uploads/' + step.image_path) }}" alt="ステップ画像">
+                </div>
+                {% endif %}
+                <em class="step-memo-preview">{{ step.memo[:50] }}{% if step.memo|length > 50 %}...{% endif %}</em>
+            </div>
+        </div>
+        <div class="step-actions">
+            <a href="{{ url_for('edit_step', chart_id=chart.id, step_id=step.id) }}" class="edit-button">編集</a>
+            <form action="{{ url_for('delete_step', chart_id=chart.id, step_id=step.id) }}" method="POST">
+                <button type="submit" onclick="return confirm('削除しますか？');" class="delete">削除</button>
+            </form>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<h2>新規チャート作成</h2>
+<form method="POST">
+    <label>タイトル: <input type="text" name="title"></label><br />
+    <label>カテゴリ: <input type="text" name="category"></label><br />
+    <button type="submit">作成</button>
+</form>
+{% endif %}
+{% endblock %}
