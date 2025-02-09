@@ -214,25 +214,73 @@ select:focus {
     margin-left: 0.5rem;
 }
 
-/* 新規チャート作成ボタン */
-.create-chart-button {
+/* 新規作成ボタン共通スタイル */
+.create-button {
     display: inline-block;
     padding: 1rem 2rem;
-    background: #27ae60;
     color: white;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 500;
-    margin: 2rem 0;
+    margin: 1rem 0 2rem;
     transition: background-color 0.2s, transform 0.2s;
 }
 
-.create-chart-button:hover {
-    background: #219a52;
+.create-button:hover {
     transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.create-button::before {
+    content: "+";
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* 個別の色指定 */
+.create-chart-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 1rem 0 2rem;
+    transition: background-color 0.2s, transform 0.2s;
+    background: #27ae60;
+}
+
+.create-chart-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: #219a52;
 }
 
 .create-chart-button::before {
+    content: "+";
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.create-step-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 1rem 0 2rem;
+    transition: background-color 0.2s, transform 0.2s;
+    background: #3498db;
+}
+
+.create-step-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: #2980b9;
+}
+
+.create-step-button::before {
     content: "+";
     margin-right: 0.5rem;
     font-size: 1.2rem;
@@ -355,31 +403,6 @@ button.delete:hover {
 
 .drag-below {
     border-bottom: 2px solid #3498db;
-}
-
-/* 新規ステップ作成ボタン */
-.create-step-button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background: #3498db;
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 500;
-    margin: 1rem 0 2rem;
-    transition: background-color 0.2s, transform 0.2s;
-}
-
-.create-step-button:hover {
-    background: #2980b9;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.create-step-button::before {
-    content: "+";
-    margin-right: 0.5rem;
-    font-size: 1.2rem;
 }
 
 /* ステップアクションボタン */
