@@ -140,7 +140,8 @@ main {
 /* フォームスタイルの改善 */
 input[type="text"],
 input[type="number"],
-textarea {
+textarea,
+select {
     width: 100%;
     padding: 0.8rem;
     border: 1px solid #ddd;
@@ -150,30 +151,30 @@ textarea {
     transition: border-color 0.2s;
 }
 
-input[type="text"]:focus,
-input[type="number"]:focus,
-textarea:focus {
+input:focus,
+textarea:focus,
+select:focus {
     border-color: #3498db;
     outline: none;
     box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
 }
 
-/* エラーメッセージ */
-.error {
-    color: #e74c3c;
-    background: #fdf0ed;
+/* メッセージの共通スタイル */
+.error,
+.success {
     padding: 0.8rem;
     border-radius: 4px;
     margin-bottom: 1rem;
 }
 
-/* 成功メッセージ */
+.error {
+    color: #e74c3c;
+    background: #fdf0ed;
+}
+
 .success {
     color: #27ae60;
     background: #edfdf5;
-    padding: 0.8rem;
-    border-radius: 4px;
-    margin-bottom: 1rem;
 }
 
 /* チャート一覧 */
@@ -243,16 +244,6 @@ ul {
     padding: 0;
 }
 
-.step-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1rem;
-    background: white;
-    border-radius: 5px;
-    margin-bottom: 0.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
 
 .step-handle {
     cursor: move;
@@ -285,13 +276,6 @@ ul {
     text-decoration: underline;
 }
 
-.step-memo-preview {
-    display: block;
-    font-size: 0.9em;
-    color: #666;
-    margin-top: 0.25rem;
-}
-
 .step-actions {
     display: flex;
     gap: 0.5rem;
@@ -310,20 +294,6 @@ form {
 label {
     display: block;
     margin-bottom: 1rem;
-}
-
-button {
-    background: #3498db;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-button:hover {
-    background: #2980b9;
 }
 
 button.delete {
@@ -446,12 +416,6 @@ button.delete:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.step-actions {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}
-
 .step-actions form {
     margin: 0;
     padding: 0;
@@ -486,15 +450,6 @@ button.delete:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-/* メモプレビューのスタイル調整 */
-.step-memo-preview {
-    flex-grow: 1;
-    display: block;
-    font-size: 0.9em;
-    color: #666;
-    margin: 0;
 }
 
 /* ステップアイテムの内部パディング調整 */

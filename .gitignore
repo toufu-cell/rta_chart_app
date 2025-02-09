@@ -1,0 +1,25 @@
+# SQLite database
+*.db
+rta_chart.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 画像アップロードディレクトリ
+static/uploads/*
+!static/uploads/.gitkeep
+
+# 環境設定
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE設定
+.idea/
+.vscode/
+*.swp
+*.swo 
